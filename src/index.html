@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Git & GitHub - Guía Interactiva</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    </head>
+
+    <body
+        class="bg-gradient-to-r from-slate-50 to-slate-100 text-gray-900 dark:from-slate-900 dark:to-slate-800 dark:text-white transition-all duration-300">
+
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full z-50 glass-effect">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <span
+                                class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="hidden md:block items-center">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#inicio"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 transition-all">Inicio</a>
+                            <a href="#git"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 transition-all">¿Qué
+                                es Git?</a>
+                            <a href="#comandos"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 transition-all">Comandos</a>
+                            <a href="#enlace"
+                                class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-white/20 transition-all">Enlaces</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header
+            class="relative min-h-screen flex items-center justify-center hero-pattern overflow-hidden"
+            id="inicio">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-blue-900/20"></div>
+            <section
+                class="py-12 flex flex-col md:flex-col  items-center gap-8 md:gap-16  ">
+                <div
+                    class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex">
+                    <div class="text-center">
+                        <h1
+                            class="text-6xl md:text-8xl font-extrabold mb-8 bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent animate-pulse">
+                            Git & GitHub
+                        </h1>
+
+                        <!-- Terminal Animation -->
+                        <div
+                            class="glass-effect rounded-2xl p-8 max-w-2xl mx-auto mb-12 glow-effect">
+                            <div class="flex items-center mb-4">
+                                <div class="flex space-x-2">
+                                    <div
+                                        class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                    <div
+                                        class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                    <div
+                                        class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                </div>
+                                <span
+                                    class="ml-4 text-sm text-gray-500">terminal</span>
+                            </div>
+                            <div
+                                class="bg-black text-green-400 font-mono p-6 rounded-lg">
+                                <p
+                                    class="text-sm opacity-70">c:\tecnicas\users></p>
+                                <p id="typewriter"
+                                    class="typewriter text-lg"></p>
+                            </div>
+                            <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const texto = "Técnicas de programación";
+    const elemento = document.getElementById("typewriter");
+    let i = 0;
+
+    function escribir() {
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+            setTimeout(escribir, 100);
+        } else {
+            elemento.innerHTML += "<br><br>c:\t";
+            i = 0;
+            setTimeout(() => {
+                elemento.textContent = "";
+                escribir();
+            }, 2000);
+        }
+    }
+
+    escribir();
+});
+</script>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Floating Elements -->
+            <div
+                class="absolute top-20 left-10 w-20 h-20 bg-purple-500/20 rounded-full blur-xl float-animation"></div>
+            <div
+                class="absolute bottom-20 right-10 w-32 h-32 bg-blue-500/20 rounded-full blur-xl float-animation"
+                style="animation-delay: -2s;"></div>
+        </header>
+
+        <main class="relative z-10">
+
+            <!-- Git Section -->
+            <section class="py-20 px-4 sm:px-6 lg:px-8" id="git">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                            Git y GitHub
+                        </h2>
+                        <div
+                            class="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="slide-in">
+                            <div class="grid gap-6">
+                                <div
+                                    class="glass-effect rounded-2xl p-6 hover-lift">
+                                    <div class="flex items-center mb-4">
+                                        <div
+                                            class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                                            <svg class="w-6 h-6 text-white"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                            </svg>
+                                        </div>
+                                        <h3
+                                            class="text-xl font-semibold">Sistema
+                                            de Control de Versiones</h3>
+                                    </div>
+                                    <p
+                                        class="text-gray-600 dark:text-gray-300">Git
+                                        es un sistema distribuido que rastrea
+                                        cambios en archivos y coordina el
+                                        trabajo entre múltiples personas.</p>
+                                </div>
+
+                                <div
+                                    class="glass-effect rounded-2xl p-6 hover-lift">
+                                    <div class="flex items-center mb-4">
+                                        <div
+                                            class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-full flex items-center justify-center mr-4">
+                                            <svg class="w-6 h-6 text-white"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+                                            </svg>
+                                        </div>
+                                        <h3
+                                            class="text-xl font-semibold">Colaboración
+                                            Global</h3>
+                                    </div>
+                                    <p
+                                        class="text-gray-600 dark:text-gray-300">GitHub
+                                        es una plataforma que permite alojar
+                                        repositorios Git y colaborar con
+                                        desarrolladores de todo el mundo.</p>
+                                </div>
+
+                                <div
+                                    class="glass-effect rounded-2xl p-6 hover-lift">
+                                    <div class="flex items-center mb-4">
+                                        <div
+                                            class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4">
+                                            <svg class="w-6 h-6 text-white"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20">
+                                                <path
+                                                    d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                                            </svg>
+                                        </div>
+                                        <h3 class="text-xl font-semibold">Código
+                                            Abierto</h3>
+                                    </div>
+                                    <p
+                                        class="text-gray-600 dark:text-gray-300">Creado
+                                        por Linus Torvalds en 2005, Git es
+                                        completamente gratuito y de código
+                                        abierto.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <div class="relative">
+                                <div
+                                    class="w-80 h-80 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-full blur-3xl absolute -inset-10"></div>
+                                <img src="./assets/gptt.png"
+                                    alt="Git y GitHub"
+                                    class="relative z-10 rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Commands Section -->
+            <section
+                class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900"
+                id="comandos">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2
+                            class="text-5xl font-bold mb-6 bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
+                            Comandos Esenciales
+                        </h2>
+                      
+                        <div
+                            class="w-24 h-1 bg-gradient-to-r from-green-600 to-teal-600 mx-auto rounded-full mt-6"></div>
+                    </div>
+
+                    <div class="grid gap-8">
+                        <!-- User Config -->
+                        <div
+                            class="command-card rounded-2xl p-6 hover-lift bg-black">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3
+                                    class="text-xl font-semibold text-white flex items-center">
+                                    <span
+                                        class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
+                                    Configurar Usuario
+                                </h3>
+                                <button onclick="copyCommand('cmd1')"
+                                    class="copy-btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-all flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copiar
+                                </button>
+                            </div>
+                            <pre id="cmd1"
+                                class="text-green-400 font-mono text-sm overflow-x-auto">git config --global user.name "Tu Nombre"
+git config --global user.email "tuemail@ejemplo.com"</pre>
+                            <p class="text-gray-400 text-sm mt-3">Configura tu
+                                identidad para que Git sepa quién hace los
+                                cambios.</p>
+                        </div>
+
+                        <!-- Git Init -->
+                        <div
+                            class="command-card rounded-2xl p-6 hover-lift bg-black">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3
+                                    class="text-xl font-semibold text-white flex items-center">
+                                    <span
+                                        class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3 text-sm">2</span>
+                                    Inicializar Repositorio
+                                </h3>
+                                <button onclick="copyCommand('cmd2')"
+                                    class="copy-btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-all flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                    Copiar
+                                </button>
+                            </div>
+                            <pre id="cmd2"
+                                class="text-green-400 font-mono text-sm">git init</pre>
+                            <p class="text-gray-400 text-sm mt-3">Crea un nuevo
+                                repositorio Git en el directorio actual.</p>
+                        </div>
+
+                       <!-- Git Add -->
+<div class="command-card rounded-2xl p-6 hover-lift bg-black">
+    <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-semibold text-white flex items-center">
+            <span class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-3 text-sm">3</span>
+            Agregar Archivos
+        </h3>
+        <button onclick="copyCommand('cmd3')" class="copy-btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-all flex items-center">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+            Copiar
+        </button>
+    </div>
+    <pre id="cmd3" class="text-green-400 font-mono text-sm">git add .</pre>
+    <p class="text-gray-400 text-sm mt-3">Prepara todos los archivos modificados para el siguiente commit.</p>
+</div>
+
+<!-- Git Commit -->
+<div class="command-card rounded-2xl p-6 hover-lift bg-black">
+    <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-semibold text-white flex items-center">
+            <span class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center mr-3 text-sm">4</span>
+            Confirmar Cambios
+        </h3>
+        <button onclick="copyCommand('cmd4')" class="copy-btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-all flex items-center">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+            Copiar
+        </button>
+    </div>
+    <pre id="cmd4" class="text-green-400 font-mono text-sm">git commit -m "mensaje del commit"</pre>
+    <p class="text-gray-400 text-sm mt-3">Registra los cambios agregados con un mensaje descriptivo.</p>
+</div>
+<!-- Git Commit -->
+<div class="command-card rounded-2xl p-6 hover-lift bg-black">
+    <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-semibold text-white flex items-center">
+            <span class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3 text-sm">5</span>
+            Subir al repositorio
+        </h3>
+        <button onclick="copyCommand('cmd4')" class="copy-btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-all flex items-center">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+            Copiar
+        </button>
+    </div>
+    <pre id="cmd4" class="text-green-400 font-mono text-sm">git push</pre>
+</div>
+
+        </section>
+
+        <!-- Technologies Section -->
+       <section class="py-20" id="habilidades">
+
+                <h2 class="text-center mb-6 font-bold text-2xl">Tecnologias
+                    usada👇 </h2>
+
+                <div>
+                    <article class="flex text-center space-y-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="fill-orange-500 w-20 mx-auto animate-desplazamiento"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M4.136 3.012h15.729l-1.431 16.15-6.451 1.826-6.414-1.826-1.433-16.15zm5.266 7.302-.173-2.035 7.533.002.173-1.963-9.87-.002.522 5.998h6.835l-.243 2.566-2.179.602-2.214-.605-.141-1.58H7.691l.247 3.123L12 17.506l4.028-1.08.558-6.111H9.402v-.001z"></path>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="fill-sky-400 w-20 mx-auto  animate-desplazamiento"
+                            viewBox="0 0 24 24"><path
+                                d="M18.5 9.51a4.22 4.22 0 0 1-1.91-1.34A5.77 5.77 0 0 0 12 6a4.72 4.72 0 0 0-5 4 3.23 3.23 0 0 1 3.5-1.49 4.32 4.32 0 0 1 1.91 1.35A5.77 5.77 0 0 0 17 12a4.72 4.72 0 0 0 5-4 3.2 3.2 0 0 1-3.5 1.51zm-13 4.98a4.22 4.22 0 0 1 1.91 1.34A5.77 5.77 0 0 0 12 18a4.72 4.72 0 0 0 5-4 3.23 3.23 0 0 1-3.5 1.49 4.32 4.32 0 0 1-1.91-1.35A5.8 5.8 0 0 0 7 12a4.72 4.72 0 0 0-5 4 3.2 3.2 0 0 1 3.5-1.51z"></path></svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            class="fill-blue-800 w-20 mx-auto animate-desplazamiento"><path
+                                d="M4.192 3.143h15.615l-1.42 16.034-6.404 1.812-6.369-1.813L4.192 3.143zM16.9 6.424l-9.8-.002.158 1.949 7.529.002-.189 2.02H9.66l.179 1.913h4.597l-.272 2.62-2.164.598-2.197-.603-.141-1.569h-1.94l.216 2.867L12 17.484l3.995-1.137.905-9.923z"></path></svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            class="fill-yellow-300 w-20 mx-auto animate-desplazamiento"><path
+                                d="M4.192 3.143h15.615l-1.42 16.034-6.404 1.812-6.369-1.813L4.192 3.143zM16.9 6.424l-9.8-.002.158 1.949 7.529.002-.189 2.02H9.66l.179 1.913h4.597l-.272 2.62-2.164.598-2.197-.603-.141-1.569h-1.94l.216 2.867L12 17.484l3.995-1.137.905-9.923z"></path></svg>
+
+                        <h3 class="text-2xl"></h3>
+                        <p class="justify-center "></p>
+                    </article>
+
+                    <style>
+                    @keyframes desplazamiento {
+                           0% {
+        transform: translateX(-1000px) rotate(0deg); /* empieza fuera a la izquierda */
+    }
+    100% {
+        transform: translateX(1000px) rotate(360deg); /* termina fuera a la derecha */
+    }
+}
+                    
+                    
+                    .animate-desplazamiento {
+                        animation: desplazamiento 6s infinite linear;
+                    }
+                    </style>
+
+                    <!-- <article class="text-center space-y-6">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="fill-sky-400 w-20 mx-auto  hover:scale-110"
+                            viewBox="0 0 24 24"><path
+                                d="M18.5 9.51a4.22 4.22 0 0 1-1.91-1.34A5.77 5.77 0 0 0 12 6a4.72 4.72 0 0 0-5 4 3.23 3.23 0 0 1 3.5-1.49 4.32 4.32 0 0 1 1.91 1.35A5.77 5.77 0 0 0 17 12a4.72 4.72 0 0 0 5-4 3.2 3.2 0 0 1-3.5 1.51zm-13 4.98a4.22 4.22 0 0 1 1.91 1.34A5.77 5.77 0 0 0 12 18a4.72 4.72 0 0 0 5-4 3.23 3.23 0 0 1-3.5 1.49 4.32 4.32 0 0 1-1.91-1.35A5.8 5.8 0 0 0 7 12a4.72 4.72 0 0 0-5 4 3.2 3.2 0 0 1 3.5-1.51z"></path></svg>
+                        <h3 class="text-2xl">Tailwind</h3>
+                        <p class="justify-center"></p>
+                    </article> -->
+
+                </div>
+
+            </section>
+            <section class="grid gap-12 py-20" id=enlace>
+                <div class="flex justify-center gap-6">
+                    <a href="https://github.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded transition">
+                        GitHub
+                    </a>
+
+                    <a href="https://git-scm.com/downloads"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded transition">
+                        Git
+                    </a>
+                </div>
+
+            </section>
+         <script>
+  function copyCommand(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      
+    });
+  }
+</script>
+   </body>
+
+</html>
+ 
